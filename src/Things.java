@@ -9,7 +9,7 @@ public class Things implements Move, Paint{
 
     final int Movement = 3;
 
-    public 
+    public Things(){}
 
     @Override
     public void move() {

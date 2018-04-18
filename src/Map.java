@@ -1,5 +1,3 @@
-import sun.plugin.dom.css.RGBColor;
-
 import java.awt.*;
 
 public class Map {
@@ -9,57 +7,26 @@ public class Map {
     final int SPAWN = 2;
     final int DOOR = 3;
     final int MOSS = 4;
-    int width = 15;
-    int height = 15;
+    int width = 14;
+    int height = 14;
     final int SIZE = 30;
     int[][] layout = new int[width][height];
+
+
 
     public Map(){
 
         for(int x = 0; x < width; x++){
                 layout[x][0] = WALL;
-                layout[x][14] = WALL;
-                if(x == 4 || x == 10){
-                    layout[x][2] = WALL;
-                    layout[x][3] = MOSS;
-                    layout[x][4] = WALL;
-                    layout[x][5] = MOSS;
-                    layout[x][6] = WALL;
-                }
-                if(x%2 == 0){
-                    layout[x][0] = MOSS;
-                    layout[x][14] = MOSS;
-                }
+                layout[x][13] = WALL;
+
+
         }
         for(int y = 0; y < height; y++){
             layout[0][y] = WALL;
-            layout[14][y] = WALL;
-            if(y%2 == 0){
-                layout[0][y] = MOSS;
-                layout[14][y] = MOSS;
-            }
+            layout[13][y] = WALL;
+
         }
-
-        layout[2][9] = MOSS;
-        layout[3][10] = WALL;
-        layout[4][11] = MOSS;
-        layout[5][12] = WALL;
-        layout[6][12] = MOSS;
-        layout[7][12] = WALL;
-        layout[8][12] = MOSS;
-        layout[9][12] = WALL;
-        layout[10][11] = MOSS;
-        layout[11][10] = WALL;
-        layout[12][9] = MOSS;
-        layout[7][8] = DOOR;
-        layout[7][4] = SPAWN;
-
-
-
-
-
-
-
 
     }
 
@@ -75,7 +42,7 @@ public class Map {
                     g.setColor(new Color(77, 38, 0));
                 }
                 if(layout[x][y] == MOSS){
-                    g.setColor(new Color(0, 51, 0));
+
                 }
 
                 g.fillRect(x*SIZE, y*SIZE, SIZE, SIZE);
@@ -94,8 +61,8 @@ public class Map {
                     g.setColor(new Color(0,0,255));
                     g.fillRect(x*SIZE, y*SIZE, SIZE, SIZE);
                     g.setColor(new Color(255, 0, 0));
-                    g.drawOval(x*SIZE, y*SIZE, width, height);
-                    g.fillOval(x*SIZE, y*SIZE, width, height);
+                    g.drawOval(x*SIZE+(SIZE/4), y*SIZE+(SIZE/4), width, height);
+                    g.fillOval(x*SIZE+(SIZE/4), y*SIZE+(SIZE/4), width, height);
                 }
 
             }

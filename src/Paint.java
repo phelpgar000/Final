@@ -1,6 +1,8 @@
+import java.awt.*;
+
 public interface Paint {
 
-    public void paint();
+    public void paint(Graphics g);
 
-    public void setPosition();
+    public void setPosition(int x, int y);
 }

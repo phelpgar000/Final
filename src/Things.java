@@ -9,7 +9,14 @@ public class Things implements Move, Paint{
 
     final int Movement = 3;
 
-    public Things(){}
+    public Things(Color color, int x, int y, int width, int height){
+
+        this.color = color;
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
 
     @Override
     public void move() {
@@ -17,12 +24,12 @@ public class Things implements Move, Paint{
     }
 
     @Override
-    public void paint() {
+    public void paint(Graphics g) {
 
     }
 
     @Override
-    public void setPosition() {
+    public void setPosition(int x, int y) {
 
     }
 }

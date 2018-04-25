@@ -21,6 +21,18 @@ public class Things implements Move, Paint{
     @Override
     public void move() {
 
+        if(Stats.isLeftPressed() == true){
+            x -= 3;
+        }
+        if(Stats.isRightPressed() == true){
+            x += 3;
+        }
+        if(Stats.isUpPressed() == true){
+            y -= 3;
+        }
+        if(Stats.isDownPressed() == true){
+            y += 3;
+        }
     }
 
     @Override

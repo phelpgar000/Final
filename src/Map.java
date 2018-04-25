@@ -73,8 +73,8 @@ public class Map {
                 }
                 g.drawRect(x*SIZE, y*SIZE, SIZE, SIZE);
                 if(layout[x][y] == SPAWN){
-                    spawnX = x*SIZE+(SIZE/4);
-                    spawnY = y*SIZE+(SIZE/4);
+                    spawnX = x*SIZE+SIZE/4;
+                    spawnY = y*SIZE+SIZE/4;
                     g.setColor(new Color(0,0,51));
                     g.fillRect(x*SIZE, y*SIZE, SIZE, SIZE);
                     g.setColor(new Color(153, 0, 0));

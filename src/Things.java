@@ -3,11 +3,14 @@ import java.awt.*;
 public class Things implements Move, Paint{
 
     Color color;
-    int x, y, width, height;
+    int x, y, width, height, nx, ny;
+    int biggnes = 15;
 
     double dx, dy;
 
     final int Movement = 3;
+
+    public Map map;
 
     public Things(Color color, int x, int y, int width, int height){
 
@@ -32,6 +35,15 @@ public class Things implements Move, Paint{
         }
         if(Stats.isDownPressed() == true){
             y += 3;
+        }
+    }
+
+    public boolean checkCollisions(int nx, int ny){
+        if(Map.block(nx - biggnes, ny - biggnes)){
+            return false;
+        }
+        if(Map.block(nx + biggnes, ny - biggnes)){
+            return false;
         }
     }
 

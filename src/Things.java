@@ -38,15 +38,6 @@ public class Things implements Move, Paint{
         }
     }
 
-    public boolean checkCollisions(int nx, int ny){
-        if(Map.block(nx - biggnes, ny - biggnes)){
-            return false;
-        }
-        if(Map.block(nx + biggnes, ny - biggnes)){
-            return false;
-        }
-    }
-
     @Override
     public void paint(Graphics g) {
 

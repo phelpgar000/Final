@@ -7,12 +7,15 @@ public class Game extends JFrame implements KeyListener{
     Board board;
 
     public Game(){
+        JFrame window = new JFrame();
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
         setResizable(false);
         setTitle("Law is a nerd.");
         board = new Board();
         add(board);
+        window.setBounds(30, 30, 300, 300);
+        window.getContentPane().add(new DrawImage());
         addKeyListener(this);
         pack();
         setLocationRelativeTo(null);

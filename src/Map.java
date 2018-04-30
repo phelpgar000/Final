@@ -16,6 +16,8 @@ public class Map {
     int height = 14;
     int spawnX, spawnY;
     final int SIZE = 30;
+    Image img1 = Toolkit.getDefaultToolkit().getImage("mossy.jpg");
+    Image img2 = Toolkit.getDefaultToolkit().getImage("wall.jpg");
     int[][] layout = new int[width][height];
 
     public Map(){
@@ -77,7 +79,7 @@ public class Map {
                     spawnY = y*SIZE+SIZE/4;
                     g.setColor(new Color(0,0,51));
                     g.fillRect(x*SIZE, y*SIZE, SIZE, SIZE);
-                    g.setColor(new Color(153, 0, 0));
+                    g.drawImage(img1, x, y, 15, 15, java.awt.Image.imageObsetver);
                     g.drawOval(x*SIZE+(SIZE/4), y*SIZE+(SIZE/4), width, height);
                     g.fillOval(x*SIZE+(SIZE/4), y*SIZE+(SIZE/4), width, height);
                 }
@@ -99,8 +101,13 @@ public class Map {
         return spawnY;
     }
 
-    public boolean block(int x, int y){
-        return layout[ x][ y] == WALL;
+    public void block(int x, int y){
+        if(layout[x][y] == WALL){
+            Stats.blockedYes();
+        }
+        else{
+            Stats.blockedNo();
+        }
     }
 
     private void printSimpleString(String s, int width, int XPos, int YPos, Graphics g2d){

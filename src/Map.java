@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.image.ImageObserver;
 
 public class Map {
 
@@ -79,7 +80,7 @@ public class Map {
                     spawnY = y*SIZE+SIZE/4;
                     g.setColor(new Color(0,0,51));
                     g.fillRect(x*SIZE, y*SIZE, SIZE, SIZE);
-                    g.drawImage(img1, x, y, 15, 15, java.awt.Image.imageObsetver);
+                    g.drawImage(img1, x, y, 15, 15, );
                     g.drawOval(x*SIZE+(SIZE/4), y*SIZE+(SIZE/4), width, height);
                     g.fillOval(x*SIZE+(SIZE/4), y*SIZE+(SIZE/4), width, height);
                 }

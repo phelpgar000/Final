@@ -80,7 +80,6 @@ public class Map {
                     spawnY = y*SIZE+SIZE/4;
                     g.setColor(new Color(0,0,51));
                     g.fillRect(x*SIZE, y*SIZE, SIZE, SIZE);
-                    g.drawImage(img1, x, y, 15, 15, );
                     g.drawOval(x*SIZE+(SIZE/4), y*SIZE+(SIZE/4), width, height);
                     g.fillOval(x*SIZE+(SIZE/4), y*SIZE+(SIZE/4), width, height);
                 }
@@ -102,8 +101,8 @@ public class Map {
         return spawnY;
     }
 
-    public void block(int x, int y){
-        if(layout[x][y] == WALL){
+    public void block(double x, double y){
+        if(layout[(int)x][(int)y] == WALL){
             Stats.blockedYes();
         }
         else{

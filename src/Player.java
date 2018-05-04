@@ -11,7 +11,7 @@ public class Player extends Things{
     public void paint(Graphics g){
 
         g.setColor(color);
-        g.fillRect(x, y, width, height);
+        g.fillRect((int)x, (int)y, width, height);
     }
 
 }

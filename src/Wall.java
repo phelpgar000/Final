@@ -1,8 +1,8 @@
 import java.awt.*;
 
-public class Traps extends Things{
+public class Wall extends Things{
 
-    public Traps(Color color, int x, int y, int width, int height){
+    public Wall(Color color, int x, int y, int width, int height){
 
         super(color, x, y, width, height);
 
@@ -13,5 +13,4 @@ public class Traps extends Things{
         g.setColor(color);
         g.fillRect((int)x, (int)y, width, height);
     }
-
 }

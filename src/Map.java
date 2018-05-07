@@ -7,12 +7,12 @@ public class Map {
     final int WALL = 1;
     final int SPAWN = 2;
     final int END = 3;
-    final int DOOR = 4;
-    final int MOSS = 5;
-    final int TRAPUP = 6;
-    final int TRAPLEFT = 7;
-    final int TRAPRIGHT = 9;
-    final int TRAPDOWN = 10;
+    final int MOSS = 4;
+    final int TRAPUP = 5;
+    final int TRAPLEFT = 6;
+    final int TRAPRIGHT = 7;
+    final int TRAPDOWN = 8;
+    int wallX, wallY;
     int width = 14;
     int height = 14;
     int spawnX, spawnY;
@@ -37,8 +37,6 @@ public class Map {
 
         }
 
-        layout[1][2] = DOOR;
-        layout[2][1] = DOOR;
         layout[1][1] = SPAWN;
         layout[11][10] = END;
 
@@ -56,18 +54,11 @@ public class Map {
                 if(layout[x][y] == WALL){
                     g.setColor(new Color(64,64,64));
                 }
-                if(layout[x][y] == DOOR){
-                    g.setColor(new Color(77, 38, 0));
-                }
                 if(layout[x][y] == MOSS){
                     g.setColor(new Color(0, 51, 0));
                 }
-
                 g.fillRect(x*SIZE, y*SIZE, SIZE, SIZE);
                 g.setColor(Color.GRAY);
-                if(layout[x][y] == DOOR){
-                    g.setColor(new Color(77, 38, 0));
-                }
                 if(layout[x][y] == WALL){
                     g.setColor(new Color(64,64,64));
                 }
@@ -91,6 +82,14 @@ public class Map {
 
             }
         }
+    }
+
+    public int getWallX(){
+        return wallX;
+    }
+
+    public int getWallY(){
+        return wallY;
     }
 
     public int getSPAWNX(){

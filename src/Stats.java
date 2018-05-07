@@ -18,5 +18,8 @@ public class Stats {
     public static boolean isRightPressed(){ return rP;}
     public static boolean isUpPressed(){ return uP;}
     public static boolean isDownPressed(){ return dP;}
-    public static boolean isBlocked(){return blocked;}
+    public static boolean isBlockedRight(){return blocked;}
+    public static boolean isBlockedLeft(){return blocked;}
+    public static boolean isBlockedUp(){return blocked;}
+    public static boolean isBlockedDown(){return blocked;}
 }

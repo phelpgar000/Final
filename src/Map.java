@@ -1,5 +1,7 @@
 import java.awt.*;
 import java.awt.image.ImageObserver;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Map {
 
@@ -16,10 +18,12 @@ public class Map {
     int width = 14;
     int height = 14;
     int spawnX, spawnY;
+    int numWAll = 0;
+    Wall[] walls = new Wall[getNumWAll()];
     final int SIZE = 30;
-    Image img1 = Toolkit.getDefaultToolkit().getImage("mossy.jpg");
-    Image img2 = Toolkit.getDefaultToolkit().getImage("wall.jpg");
     int[][] layout = new int[width][height];
+
+
 
     public Map(){
 
@@ -29,16 +33,20 @@ public class Map {
                 layout[x][2] = WALL;
 
 
+                numWAll += 3;
         }
         for(int y = 0; y < height; y++){
             layout[0][y] = WALL;
             layout[13][y] = WALL;
             layout[2][y] = WALL;
 
+            numWAll += 3;
         }
 
         layout[1][1] = SPAWN;
         layout[11][10] = END;
+        layout[2][1] = PATH;
+        layout[1][2] = PATH;
 
     }
 
@@ -67,8 +75,8 @@ public class Map {
                 }
                 g.drawRect(x*SIZE, y*SIZE, SIZE, SIZE);
                 if(layout[x][y] == SPAWN){
-                    spawnX = x*SIZE+SIZE/4;
-                    spawnY = y*SIZE+SIZE/4;
+                    spawnX = 37;
+                    spawnY = 37;
                     g.setColor(new Color(0,0,51));
                     g.fillRect(x*SIZE, y*SIZE, SIZE, SIZE);
                     g.drawOval(x*SIZE+(SIZE/4), y*SIZE+(SIZE/4), width, height);
@@ -82,6 +90,10 @@ public class Map {
 
             }
         }
+    }
+
+    public int getNumWAll(){
+        return numWAll;
     }
 
     public int getWallX(){

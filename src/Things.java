@@ -31,32 +31,20 @@ public class Things implements Move, Paint{
         return new Rectangle((int)(x + dx), (int)(y + dy), width, height);
     }
 
-    public void checkCollisions(Traps other){
-        if(this.getBounds().intersects(other.getBounds())){
-            Stats.blockedYes();
-        }
-        else{
-            Stats.blockedNo();
-        }
+    public void checkCollisions(){
+
+    }
+
+    public int getX(){
+        return (int)x;
+    }
+
+    public int getY(){
+        return (int)y;
     }
 
     @Override
     public void move() {
-
-        if(board.stuff.get(0) instanceof Player) {
-            if (Stats.isLeftPressed() && !Stats.isBlockedLeft()) {
-                x -= 3;
-            }
-            if (Stats.isRightPressed() && !Stats.isBlockedRight()) {
-                x += 3;
-            }
-            if (Stats.isUpPressed() && !Stats.isBlockedUp()) {
-                y -= 3;
-            }
-            if (Stats.isDownPressed() && !Stats.isBlockedDown()) {
-                y += 3;
-            }
-        }
 
     }
 

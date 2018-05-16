@@ -19,7 +19,6 @@ public class Map {
     int height = 14;
     int spawnX, spawnY;
     int numWAll = 0;
-    Wall[] walls = new Wall[getNumWAll()];
     final int SIZE = 30;
     int[][] layout = new int[width][height];
 
@@ -61,6 +60,7 @@ public class Map {
                 g.setColor(Color.lightGray);
                 if(layout[x][y] == WALL){
                     g.setColor(new Color(64,64,64));
+                    walls.add(new Wall(new Color(64, 64, 64), x*SIZE, y*SIZE, width, height));
                 }
                 if(layout[x][y] == MOSS){
                     g.setColor(new Color(0, 51, 0));
@@ -96,6 +96,8 @@ public class Map {
         return numWAll;
     }
 
+    List<Things> walls = new ArrayList<Things>();
+
     public int getWallX(){
         return wallX;
     }
@@ -112,13 +114,10 @@ public class Map {
         return spawnY;
     }
 
-    public void block(double x, double y){
-        if(layout[(int)x][(int)y] == WALL){
-            Stats.blockedYes();
-        }
-        else{
-            Stats.blockedNo();
-        }
+    public boolean block(double x, double y){
+
+        return layout[(int)x][(int)y] == WALL;
+
     }
 
     private void printSimpleString(String s, int width, int XPos, int YPos, Graphics g2d){

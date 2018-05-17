@@ -48,15 +48,6 @@ public class Things implements Move, Paint{
 
     }
 
-    public void checking(double nextRight, double nextLeft, double nextTop, double nextBottom){
-        if(nextRight != map.layout[(int)x][(int)y] && nextTop != map.layout[(int) x][(int) y]){
-            map.block(nextRight, nextTop);
-        }
-        if(nextLeft != map.layout[(int)x][(int)y] && nextBottom != map.layout[(int) x][(int) y]){
-            map.block(nextRight, nextTop);
-        }
-    }
-
     @Override
     public void paint(Graphics g) {
 

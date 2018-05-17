@@ -60,7 +60,6 @@ public class Map {
                 g.setColor(Color.lightGray);
                 if(layout[x][y] == WALL){
                     g.setColor(new Color(64,64,64));
-                    walls.add(new Wall(new Color(64, 64, 64), x*SIZE, y*SIZE, width, height));
                 }
                 if(layout[x][y] == MOSS){
                     g.setColor(new Color(0, 51, 0));
@@ -114,7 +113,7 @@ public class Map {
         return spawnY;
     }
 
-    public boolean block(double x, double y){
+    public boolean block(float x, float y){
 
         return layout[(int)x][(int)y] == WALL;
 

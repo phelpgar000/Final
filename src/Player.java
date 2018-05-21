@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Player extends Things{
 
-    int SIZE = 30;
+    float SIZE = 0.3f;
 
     public Player(Color color, int x, int y, int width, int height){
 
@@ -16,7 +16,7 @@ public class Player extends Things{
         g.fillRect((int)x, (int)y, width, height);
     }
 
-    public boolean decide(float dx, float dy){
+    public void decide(float dx, float dy){
 
         float nx = (float)x + dx;
         float ny = (float)y + dy;
@@ -25,10 +25,10 @@ public class Player extends Things{
             x = nx;
             y = ny;
 
-            return true;
+            Stats.blockedYes();
         }
 
-        return false;
+        Stats.blockedNo();
     }
 
     public boolean valid(float nx, float ny){
@@ -53,17 +53,19 @@ public class Player extends Things{
     @Override
     public void move() {
 
+
             if (Stats.isLeftPressed()) {
-                x -= 3;
+                x -= 1;
             }
             if (Stats.isRightPressed()) {
-                x += 3;
+                x += 1;
             }
             if (Stats.isUpPressed()) {
-                y -= 3;
+                y -= 1;
             }
             if (Stats.isDownPressed()) {
-                y += 3;
+                y += 1;
             }
+
     }
 }

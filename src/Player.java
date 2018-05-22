@@ -3,6 +3,8 @@ import java.awt.*;
 public class Player extends Things{
 
     float SIZE = 0.3f;
+    float dx = (float)x + SIZE;
+    float dy = (float)y + SIZE;
 
     public Player(Color color, int x, int y, int width, int height){
 
@@ -53,19 +55,22 @@ public class Player extends Things{
     @Override
     public void move() {
 
-
             if (Stats.isLeftPressed()) {
-                x -= 1;
+                x -= 3;
             }
             if (Stats.isRightPressed()) {
-                x += 1;
+                x += 3;
             }
             if (Stats.isUpPressed()) {
-                y -= 1;
+                y -= 3;
             }
             if (Stats.isDownPressed()) {
-                y += 1;
+                y += 3;
             }
 
+    }
+
+    public void changed(){
+        if(Stats.isOne()){
     }
 }

@@ -49,6 +49,15 @@ public class Game extends JFrame implements KeyListener{
         if(e.getKeyCode() == KeyEvent.VK_SPACE){
             Stats.spaceYes();
         }
+        if(e.getKeyCode() == KeyEvent.VK_1){
+            Stats.oneYes();
+        }
+        if(e.getKeyCode() == KeyEvent.VK_2){
+            Stats.twoYes();
+        }
+        if(e.getKeyCode() == KeyEvent.VK_3){
+            Stats.threeYes();
+        }
     }
 
     @Override
@@ -67,6 +76,15 @@ public class Game extends JFrame implements KeyListener{
         }
         if(e.getKeyCode() == KeyEvent.VK_SPACE){
             Stats.spaceNo();
+        }
+        if(e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3){
+            Stats.oneNo();
+        }
+        if(e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_3){
+            Stats.twoNo();
+        }
+        if(e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_2){
+            Stats.threeNo();
         }
     }
 }

@@ -16,6 +16,7 @@ public class Player extends Things{
 
         g.setColor(color);
         g.fillRect((int)x, (int)y, width, height);
+
     }
 
     public void decide(float dx, float dy){
@@ -70,7 +71,4 @@ public class Player extends Things{
 
     }
 
-    public void changed(){
-        if(Stats.isOne()){
-    }
 }

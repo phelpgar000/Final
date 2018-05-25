@@ -47,16 +47,39 @@ public class Game extends JFrame implements KeyListener{
             Stats.downYes();
         }
         if(e.getKeyCode() == KeyEvent.VK_SPACE){
-            Stats.spaceYes();
+            Stats.startPlay();
+            Stats.endMenu();
+            Stats.endEnd();
+            Stats.endPause();
+            Stats.endDeath();
         }
-        if(e.getKeyCode() == KeyEvent.VK_1){
-            Stats.oneYes();
+        if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+            Stats.startMenu();
+            Stats.endPause();
+            Stats.endPlay();
+            Stats.endEnd();
+            Stats.endDeath();
         }
-        if(e.getKeyCode() == KeyEvent.VK_2){
-            Stats.twoYes();
+        if(e.getKeyCode() == KeyEvent.VK_P){
+            Stats.togglePlay();
+            Stats.togglePause();
+            Stats.endMenu();
+            Stats.endEnd();
+            Stats.endDeath();
         }
-        if(e.getKeyCode() == KeyEvent.VK_3){
-            Stats.threeYes();
+        if(e.getKeyCode() == KeyEvent.VK_E){
+            Stats.endMenu();
+            Stats.endPause();
+            Stats.endPlay();
+            Stats.startEnd();
+            Stats.endDeath();
+        }
+        if(e.getKeyCode() == KeyEvent.VK_D){
+            Stats.endPlay();
+            Stats.endPause();
+            Stats.endEnd();
+            Stats.endMenu();
+            Stats.startDeath();
         }
     }
 
@@ -73,18 +96,6 @@ public class Game extends JFrame implements KeyListener{
         }
         if(e.getKeyCode() == KeyEvent.VK_DOWN){
             Stats.downNo();
-        }
-        if(e.getKeyCode() == KeyEvent.VK_SPACE){
-            Stats.spaceNo();
-        }
-        if(e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_3){
-            Stats.oneNo();
-        }
-        if(e.getKeyCode() == KeyEvent.VK_1 || e.getKeyCode() == KeyEvent.VK_3){
-            Stats.twoNo();
-        }
-        if(e.getKeyCode() == KeyEvent.VK_2 || e.getKeyCode() == KeyEvent.VK_2){
-            Stats.threeNo();
         }
     }
 }

@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.util.ArrayList;
@@ -72,7 +73,6 @@ public class Map {
                 if(layout[x][y] == MOSS){
                     g.setColor(new Color(0, 51, 0));
                 }
-                g.drawRect(x*SIZE, y*SIZE, SIZE, SIZE);
                 if(layout[x][y] == SPAWN){
                     spawnX = 37;
                     spawnY = 37;
@@ -113,10 +113,8 @@ public class Map {
         return spawnY;
     }
 
-    public boolean block(float x, float y){
-
-        return layout[(int)x][(int)y] == WALL;
-
+    public boolean block(double x, double y){
+        return layout[(int)(x*SIZE)][((int)y*SIZE)] == WALL;
     }
 
     private void printSimpleString(String s, int width, int XPos, int YPos, Graphics g2d){

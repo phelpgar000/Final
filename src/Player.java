@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Player extends Things{
 
-    float SIZE = 0.3f;
+    float SIZE = 30;
     float dx = (float)x + SIZE;
     float dy = (float)y + SIZE;
 
@@ -34,40 +34,24 @@ public class Player extends Things{
         Stats.blockedNo();
     }
 
-    public boolean valid(float nx, float ny){
-
-        if(map.block(nx-SIZE, ny-SIZE)){
-            return false;
-        }
-        if(map.block(nx+SIZE, ny-SIZE)){
-            return false;
-        }
-        if(map.block(nx-SIZE, ny+SIZE)){
-            return false;
-        }
-        if(map.block(nx+SIZE, ny+SIZE)){
-            return false;
-        }
-
-        return true;
-
-    }
 
     @Override
     public void move() {
 
-            if (Stats.isLeftPressed()) {
-                x -= 3;
-            }
-            if (Stats.isRightPressed()) {
-                x += 3;
-            }
-            if (Stats.isUpPressed()) {
-                y -= 3;
-            }
-            if (Stats.isDownPressed()) {
-                y += 3;
-            }
+        if (Stats.isLeftPressed()) {
+            x -= 3;
+            if(!valid(x,y))
+                x+=3;
+        }
+        if (Stats.isRightPressed()) {
+            x += 3;
+        }
+        if (Stats.isUpPressed()) {
+            y -= 3;
+        }
+        if (Stats.isDownPressed()) {
+            y += 3;
+        }
 
     }
 

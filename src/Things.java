@@ -11,6 +11,7 @@ public class Things implements Move, Paint{
     double nextRight = x + width + dx;
     double nextTop = y + dy;
     double nextBottom = y + height + dy;
+    int SIZE = 30;
 
     final int Movement = 3;
 
@@ -32,6 +33,35 @@ public class Things implements Move, Paint{
     }
 
     public void checkCollisions(){
+
+    }
+
+    public void collidesWith(Rectangle rectangle){
+
+            if(getBounds().intersects(rectangle.getBounds())){
+                dx = 0;
+                dy = 0;
+
+            }
+
+    }
+
+    public boolean valid(double nx, double ny){
+
+        if(map.block(nx-SIZE, ny-SIZE)){
+            return false;
+        }
+        if(map.block(nx+SIZE, ny-SIZE)){
+            return false;
+        }
+        if(map.block(nx-SIZE, ny+SIZE)){
+            return false;
+        }
+        if(map.block(nx+SIZE, ny+SIZE)){
+            return false;
+        }
+
+        return true;
 
     }
 

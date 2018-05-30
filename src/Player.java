@@ -2,9 +2,11 @@ import java.awt.*;
 
 public class Player extends Things{
 
-    float SIZE = 30;
+    int SIZE = 30;
     float dx = (float)x + SIZE;
     float dy = (float)y + SIZE;
+
+    Wall wall = new Wall(Color.GRAY, (int)x, (int)y, SIZE, SIZE);
 
     public Player(Color color, int x, int y, int width, int height){
 
@@ -40,8 +42,7 @@ public class Player extends Things{
 
         if (Stats.isLeftPressed()) {
             x -= 3;
-            if(!valid(x,y))
-                x+=3;
+            collidesWith(wall);
         }
         if (Stats.isRightPressed()) {
             x += 3;

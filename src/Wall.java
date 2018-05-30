@@ -12,7 +12,7 @@ public class Wall extends Things {
 
     }
 
-    public void create(){
+    public void create(int x, int y){
         if(!valid(x, y)){
             wall.add(new Wall(Color.GRAY , (int)x, (int)y, SIZE, SIZE));
         }

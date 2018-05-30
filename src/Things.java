@@ -36,12 +36,11 @@ public class Things implements Move, Paint{
 
     }
 
-    public void collidesWith(Rectangle rectangle){
+    public void collidesWith(Wall wall){
 
-            if(getBounds().intersects(rectangle.getBounds())){
+            if(board.stuff.get(0).getBounds().intersects(wall.getBounds())){
                 dx = 0;
                 dy = 0;
-
             }
 
     }

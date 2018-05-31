@@ -6,7 +6,7 @@ public class Stats {
     private static boolean menu = true;
     private static boolean end = false;
     private static boolean death = false;
-    public static int level = 0;
+    public static int level = 1;
 
     public static void leftYes(){lP = true;}
     public static void rightYes(){rP = true;}

@@ -1,3 +1,5 @@
+import com.sun.glass.ui.Size;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.ImageObserver;
@@ -28,27 +30,59 @@ import java.util.List;
 
         public Map(){
 
+            if(Stats.level == 1) {
+                for (int x = 0; x < width; x++) {
+                    layout[x][0] = WALL;
+                    layout[x][13] = WALL;
+                    layout[x][2] = WALL;
+
+                    numWAll += 3;
+                }
+                for (int y = 0; y < height; y++) {
+                    layout[0][y] = WALL;
+                    layout[13][y] = WALL;
+                    layout[2][y] = WALL;
+
+                    numWAll += 3;
+                }
+
+                layout[1][1] = SPAWN;
+                layout[11][10] = END;
+                layout[2][1] = PATH;
+                layout[1][2] = PATH;
+            }
+            if(Stats.level == 2){
+                for (int x = 0; x < width; x++) {
+                    layout[x][0] = WALL;
+                    layout[x][13] = WALL;
+                    layout[x][2] = WALL;
+
+                    numWAll += 3;
+                }
+                for (int y = 0; y < height; y++) {
+                    layout[0][y] = WALL;
+                    layout[13][y] = WALL;
+                    layout[2][y] = WALL;
+
+                    numWAll += 3;
+                }
+
+                layout[6][7] = SPAWN;
+                layout[12][12] = END;
+                layout[2][1] = PATH;
+                layout[1][2] = PATH;
+
+            }
+
             for(int x = 0; x < width; x++){
-                layout[x][0] = WALL;
-                layout[x][13] = WALL;
-                layout[x][2] = WALL;
-
-                numWAll += 3;
-            }
-            for(int y = 0; y < height; y++){
-                layout[0][y] = WALL;
-                layout[13][y] = WALL;
-                layout[2][y] = WALL;
-
-                numWAll += 3;
+                for(int y = 0; y < height; y++){
+                    if(layout[x][y] == WALL){
+                        walls.add(new Wall(Color.CYAN, x, y, SIZE, SIZE));
+                    }
+                }
             }
 
-            layout[1][1] = SPAWN;
-            layout[11][10] = END;
-            layout[2][1] = PATH;
-            layout[1][2] = PATH;
-
-
+            setSpawn();
 
         }
 
@@ -71,16 +105,14 @@ import java.util.List;
                     g.setColor(Color.WHITE);
                     if(layout[x][y] == WALL){
                         g.setColor(new Color(64,64,64));
-                        g.setColor(Color.CYAN);
-                        walls.add(new Wall(Color.GRAY, x, y, SIZE, SIZE));
                     }
                     if(layout[x][y] == MOSS){
                         g.setColor(new Color(0, 51, 0));
                     }
                     g.drawRect(x*SIZE, y*SIZE, SIZE, SIZE);
                     if(layout[x][y] == SPAWN){
-                        spawnX = 37;
-                        spawnY = 37;
+                        spawnX = x*SIZE;
+                        spawnY = y*SIZE;
                         g.setColor(new Color(0,0,51));
                         g.fillRect(x*SIZE, y*SIZE, SIZE, SIZE);
                         g.drawOval(x*SIZE+(SIZE/4), y*SIZE+(SIZE/4), width, height);
@@ -96,16 +128,15 @@ import java.util.List;
             }
         }
 
-        public int getNumWAll(){
-            return numWAll;
-        }
-
-        public int getWallX(){
-            return wallX;
-        }
-
-        public int getWallY(){
-            return wallY;
+        public void setSpawn() {
+            for (int x = 0; x < width; x++) {
+                for (int y = 0; y < height; y++) {
+                    if (layout[x][y] == SPAWN) {
+                        spawnX = x * SIZE + (SIZE/4);
+                        spawnY = y * SIZE + (SIZE/4);
+                    }
+                }
+            }
         }
 
         public int getSPAWNX(){

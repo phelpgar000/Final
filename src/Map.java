@@ -56,6 +56,7 @@ import java.util.List;
                     layout[x][0] = WALL;
                     layout[x][13] = WALL;
                     layout[x][2] = WALL;
+                    layout[x][4] = WALL;
 
                     numWAll += 3;
                 }
@@ -63,6 +64,7 @@ import java.util.List;
                     layout[0][y] = WALL;
                     layout[13][y] = WALL;
                     layout[2][y] = WALL;
+                    layout[4][y] = WALL;
 
                     numWAll += 3;
                 }
